@@ -158,3 +158,36 @@ root@user: vim nexus.properties
     /etc/init.d/apache2 restart
     systemctl status apache2.service
 ```
+
+## Push image to nexus
+
+***Note: Stay in current project directory***
+
+**Login to nexus repoistory**
+
+```
+financial-service-web % docker login https://nexus.sithvothykiv.site:8888
+```
+
+**Build docker image**
+
+```
+financial-service-web % docker build -t financial-service-web:v0.0.1 .
+financial-service-web % docker images 
+```
+
+**Push docker image**
+
+
+```
+docker tag [OPTIONS] IMAGE[:TAG] [REGISTRYHOST/][USERNAME/]NAME[:TAG]
+
+financial-service-web % docker tag 9d54c2cec032 nexus.sithvothykiv.site:8888/financial-service-web:v0.0.1 
+financial-service-web % docker push nexus.sithvothykiv.site:8888/financial-service-web:v0.0.1
+
+docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+financial-service-web % docker run -itd --name financial-service-web 9d54c2cec032
+```
+
+
