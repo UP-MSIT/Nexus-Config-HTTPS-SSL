@@ -53,9 +53,13 @@
 ```netstat -ntap```
 
 
-**Nexus log**
+**Nexus and SonarQube logs**
 
-```tail -f /opt/sonatype-work/nexus3/log/nexus.log```
+```
+tail -f /opt/sonatype-work/nexus3/log/nexus.log
+tail -f /opt/sonarqube/logs/sonar.log 
+
+```
 
 **Install letsengrypt**
 
